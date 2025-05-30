@@ -28,7 +28,7 @@ export default function TableOfContents({ headings, activeSection }: TableOfCont
     // Use a timeout to ensure DOM is fully processed
     setTimeout(() => {
       // Try multiple approaches to find the element
-      let element = null;
+      let element: HTMLElement | null = null;
       
       // Direct ID match
       element = document.getElementById(id);
@@ -39,16 +39,16 @@ export default function TableOfContents({ headings, activeSection }: TableOfCont
         const headingSelectors = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']
           .map(tag => `${tag}[id="${id}"]`)
           .join(', ');
-        element = document.querySelector(headingSelectors);
+        element = document.querySelector(headingSelectors) as HTMLElement | null;
         
         // Try data-id attribute
         if (!element) {
-          element = document.querySelector(`[data-id="${id}"]`);
+          element = document.querySelector(`[data-id="${id}"]`) as HTMLElement | null;
         }
         
         // Try anchor with name attribute
         if (!element) {
-          element = document.querySelector(`a[name="${id}"]`);
+          element = document.querySelector(`a[name="${id}"]`) as HTMLElement | null;
         }
         
         // Look for heading text that matches
@@ -60,7 +60,7 @@ export default function TableOfContents({ headings, activeSection }: TableOfCont
             
             for (const heading of allHeadings) {
               if (heading.textContent?.trim() === textContent) {
-                element = heading;
+                element = heading as HTMLElement;
                 console.log(`Found heading via text content match: ${textContent}`);
                 break;
               }
@@ -68,7 +68,7 @@ export default function TableOfContents({ headings, activeSection }: TableOfCont
               // Try a more lenient match
               if (heading.textContent?.trim().includes(textContent) || 
                   textContent.includes(heading.textContent?.trim() || '')) {
-                element = heading;
+                element = heading as HTMLElement;
                 console.log(`Found heading via partial text match: ${textContent}`);
                 break;
               }

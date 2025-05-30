@@ -11,7 +11,9 @@ export interface DocContent {
 export async function getDocContent(slug: string): Promise<DocContent> {
   // For this demo, we'll use a hardcoded content string
   // In a real app, you would fetch this from the filesystem or an API
-  const content = `# 🧰 VMware Workstation Setup – Windows Server 2022 & Windows 10 Client
+  const content = `
+![[titlebild.png]]
+# 🧰 VMware Workstation Setup – Windows Server 2022 & Windows 10 Client
 
 ## 🔧 Voraussetzungen
 

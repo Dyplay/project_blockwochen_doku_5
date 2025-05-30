@@ -93,7 +93,7 @@ export default function ThreeBackground({ scrollProgress }: ThreeBackgroundProps
       
       // Add animation with anime.js
       anime({
-        targets: mesh.rotation,
+        targets: mesh.rotation as any,
         x: mesh.rotation.x + Math.PI * 2,
         y: mesh.rotation.y + Math.PI * 2,
         duration: 10000 + Math.random() * 20000,
@@ -102,7 +102,7 @@ export default function ThreeBackground({ scrollProgress }: ThreeBackgroundProps
       });
       
       anime({
-        targets: mesh.position,
+        targets: mesh.position as any,
         y: mesh.position.y + (Math.random() - 0.5) * 1.5,
         duration: 8000 + Math.random() * 10000,
         easing: 'easeInOutSine',
@@ -145,7 +145,7 @@ export default function ThreeBackground({ scrollProgress }: ThreeBackgroundProps
         
         // Subtle floating animation
         anime({
-          targets: mesh.rotation,
+          targets: mesh.rotation as any,
           x: mesh.rotation.x + Math.PI * 2,
           y: mesh.rotation.y + Math.PI * 2,
           z: mesh.rotation.z + Math.PI * 2,
@@ -156,7 +156,7 @@ export default function ThreeBackground({ scrollProgress }: ThreeBackgroundProps
         
         // Subtle position animation
         anime({
-          targets: mesh.position,
+          targets: mesh.position as any,
           y: mesh.position.y + (Math.random() - 0.5) * 1,
           x: mesh.position.x + (Math.random() - 0.5) * 0.5,
           duration: 10000 + Math.random() * 8000,
@@ -220,7 +220,7 @@ export default function ThreeBackground({ scrollProgress }: ThreeBackgroundProps
       // Parallax effect based on scroll
       const zOffset = (scrollProgress / 100) * 2 * ((i % 3) - 1);
       anime({
-        targets: shape.position,
+        targets: shape.position as any,
         z: shape.position.z + zOffset,
         duration: 800,
         easing: 'easeOutQuad'
@@ -229,7 +229,7 @@ export default function ThreeBackground({ scrollProgress }: ThreeBackgroundProps
       // Increase opacity slightly on scroll
       const material = shape.material as THREE.MeshBasicMaterial;
       anime({
-        targets: material,
+        targets: material as any,
         opacity: 0.3 + (scrollProgress / 100) * 0.2 * ((i % 5) / 5),
         duration: 800,
         easing: 'easeOutQuad'
