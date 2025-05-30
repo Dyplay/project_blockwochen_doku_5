@@ -202,11 +202,6 @@ export default function AuthProtection({ children }: AuthProtectionProps) {
                 </button>
               </form>
             </div>
-            
-            <div className="mt-8 text-center text-sm text-white/50">
-              <p>For demonstration purposes, the password is: "bsevita-43242025"</p>
-              <p className="mt-1">In production, this would use your .env variable</p>
-            </div>
           </motion.div>
         )}
       </AnimatePresence>
